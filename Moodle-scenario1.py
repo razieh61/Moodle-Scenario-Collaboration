@@ -51,6 +51,7 @@ def log_in_admin():
             print(f'Dashboard is not displayed. Check your code or website and try again.')
 
 def log_out():
+    print(f'------------------------------LOGOUT FUNCTION---------------------------------------------------')
     driver.find_element(By.CLASS_NAME, 'userpicture').click()
     sleep(0.25)
     driver.find_element(By.XPATH, '//span[contains(.,"Log out")]').click()  # // means to search everywhere in the file;
