@@ -1,6 +1,8 @@
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+
 
 s = Service(executable_path='../chromedriver.exe')
 driver = webdriver.Chrome(service=s)
@@ -11,8 +13,8 @@ hmpg_title = 'Software Quality Assurance Testing'
 print()
 print('------------------------- Moodle App Scenario by CCTB Cohort 3 --------------------------------------')
 print()
-print('set up, log in admin, create user, search user, log out, log in new user,
-      log out, log in admin, delete new user, log out, tear down')
+print('set up, log in admin, create user, search user, log out, log in new user, '
+      'log out, log in admin, delete new user, log out, tear down')
 
 
 def setUp():
