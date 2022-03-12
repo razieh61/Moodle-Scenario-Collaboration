@@ -32,9 +32,24 @@ def setUp():
 
 def log_in_admin():
     print(f'------------------------------LOGIN FUNCTION----------------------------------------------------')
-    if driver.current_url == moodle_url: # check we are on the homepage
+    if driver.current_url == locators.moodle_url: # check we are on the homepage
         driver.find_element(By.LINK_TEXT, 'Log in').click()
-    
+    if driver.current_url == locators.moodle_login_page_url  and driver.title == locators.moodle_login_page_title:
+        print(f'{locators.app} App Login page is displayed! Continue to log in.')
+        sleep(0.25)
+        driver.find_element(By.ID, 'username').send_keys(username)
+        sleep(0.25)
+        driver.find_element(By.ID, 'password').send_keys(password)
+        sleep(0.25)
+        driver.find_element(By.ID,'loginbtn').click() # method 1 using ID
+        # validate login successful Dashboard page is displayed
+        if driver.current_url == locators.moodle_dashboard_url and driver.title == locators.moodle_dashboard_title:
+            assert driver.current_url == locators.moodle_dashboard_url
+            assert driver.title == locators.moodle_dashboard_title
+            print(f'Login is successful. {locators.app} Dashboard is displayed - Page title: {driver.title}')
+        else:
+            print(f'Dashboard is not displayed. Check your code or website and try again.')
+
 def log_out():
     driver.find_element(By.CLASS_NAME, 'userpicture').click()
     sleep(0.25)
