@@ -35,6 +35,16 @@ def log_in_admin():
     if driver.current_url == moodle_url: # check we are on the homepage
         driver.find_element(By.LINK_TEXT, 'Log in').click()
     
+def log_out():
+    driver.find_element(By.CLASS_NAME, 'userpicture').click()
+    sleep(0.25)
+    driver.find_element(By.XPATH, '//span[contains(.,"Log out")]').click()  # // means to search everywhere in the file;
+    # . search anything that has after the .
+    sleep(0.25)
+    if driver.current_url == locators.moodle_url:
+        print(f'-----Logout is done! {datetime.datetime.now()}')
+
       
 setUp()
 log_in_admin()
+log_out
