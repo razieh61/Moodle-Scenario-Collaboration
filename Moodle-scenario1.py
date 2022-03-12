@@ -47,4 +47,4 @@ def log_out():
       
 setUp()
 log_in_admin()
-log_out
+log_out()
