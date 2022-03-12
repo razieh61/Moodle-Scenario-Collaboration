@@ -30,5 +30,11 @@ def setUp():
         print(f'Moodle did not launch. Check your code or app.')
         print(f'current url: {driver.current_url}, page title: {driver.title}')
 
-
+def log_in_admin():
+    print(f'------------------------------LOGIN FUNCTION----------------------------------------------------')
+    if driver.current_url == moodle_url: # check we are on the homepage
+        driver.find_element(By.LINK_TEXT, 'Log in').click()
+    
+      
 setUp()
+log_in_admin()
